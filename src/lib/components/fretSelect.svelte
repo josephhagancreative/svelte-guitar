@@ -9,7 +9,7 @@
 
 <script lang="ts">
   let { value = $bindable(24) }: {value: number} = $props();  
-   let frets = Array.from({ length: 25 }, (_, i) => i);
+   let frets = Array.from({ length: 13 }, (_, i) => i + 12);
 </script>
 <style  >
   .container {

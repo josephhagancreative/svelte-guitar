@@ -62,3 +62,5 @@ export const SCALE_NOTES: Record<Note, Record<Scale, Note[]>> = {
 		Minor: ['G#', 'A#', 'B', 'C#', 'D#', 'E', 'F#']
 	}
 };
+
+export const DOTTED_FRETS = [3, 5, 7, 9, 12, 15, 17, 19, 21, 24];

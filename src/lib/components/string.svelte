@@ -9,7 +9,7 @@
   let { string }: {string: GuitarString}  = $props()
 </script>
 
-<style  >
+<style scoped>
   .container {
     position: relative;
     display: flex;
@@ -20,12 +20,15 @@
     justify-content: center;
     padding: 0.5rem;
     min-width: 25px;
+    width: 25px;
+    overflow: hidden;
     border: 1px solid var(--dark-grey);
     border-right: 2px solid var(--off-black);
     background-color: transparent;
 
     &:first-child {
       min-width: 10px;
+      width: 10px;
       border-right: 4px double var(--black);
 
     }
