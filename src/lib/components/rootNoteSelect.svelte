@@ -1,15 +1,16 @@
 <div class="container">
-  <h4 class="label">Tuning:</h4>
-  <select id="tuning" name="tuning" class="input" bind:value={value} >
-    {#each TUNINGS as tuning}
-    <option value={tuning} class="option">{tuning}</option>
+  <h4 class="label">Root Note:</h4>
+  <select id="root-note" name="root-note" class="input" bind:value={value} >
+    {#each NOTES as note}
+    <option value={note} class="option">{note}</option>
     {/each}
   </select>
 </div>
 
 <script lang="ts">
-	import { TUNINGS } from "$lib/const/strings";
-  let { value = $bindable(), ...props } = $props();  
+	import { NOTES } from "$lib/const/strings";
+	import type { Note } from "$lib/types/guitar";
+  let { value = $bindable() }: {value: Note} = $props();  
 </script>
 <style  >
   .container {

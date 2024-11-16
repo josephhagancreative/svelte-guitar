@@ -1,15 +1,17 @@
 <div class="container">
-  <h4 class="label">Tuning:</h4>
-  <select id="tuning" name="tuning" class="input" bind:value={value} >
-    {#each TUNINGS as tuning}
-    <option value={tuning} class="option">{tuning}</option>
+  <h4 class="label">Scale:</h4>
+  <select id="scale" name="scale" class="input" bind:value={value} >
+    <option value={null} class="option">None</option>
+    {#each SCALES as scale}
+    <option value={scale} class="option">{scale}</option>
     {/each}
   </select>
 </div>
 
 <script lang="ts">
-	import { TUNINGS } from "$lib/const/strings";
-  let { value = $bindable(), ...props } = $props();  
+	import {  SCALES } from "$lib/const/strings";
+	import type {  Scale } from "$lib/types/guitar";
+  let { value = $bindable() }: {value?: Scale} = $props();  
 </script>
 <style  >
   .container {
