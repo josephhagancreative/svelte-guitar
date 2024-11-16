@@ -1,16 +1,15 @@
 <div class="container">
-  <h4 class="label">Root Note:</h4>
-  <select id="root-note" name="root-note" class="input" bind:value={value} >
-    {#each NOTES as note}
-    <option value={note} class="option">{note}</option>
+  <h4 class="label">Number of Frets:</h4>
+  <select id="frets" name="frets" class="input" bind:value={value} >
+    {#each frets as fret}
+    <option value={fret} class="option">{fret}</option>
     {/each}
   </select>
 </div>
 
 <script lang="ts">
-	import { NOTES } from "$lib/const/strings";
-	import type { Note } from "$lib/types/guitar";
-  let { value = $bindable() }: {value: Note} = $props();  
+  let { value = $bindable(24) }: {value: number} = $props();  
+   let frets = Array.from({ length: 25 }, (_, i) => i);
 </script>
 <style  >
   .container {
@@ -29,7 +28,7 @@
     font-size: 16px;
     border-radius: 4px;
     border: 1px solid var(--light-grey);
-    width: 100px;
+    width: 150px;
     cursor: pointer;
   }
 .option {

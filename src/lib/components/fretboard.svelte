@@ -14,15 +14,16 @@
 	import { generateStrings } from "$lib/utils/strings/generateStrings";
 	import String from "./string.svelte";
 
-  let { selectedTuning, selectedRootNote, selectedScale }: {
+  let { selectedTuning, selectedFrets = 24, selectedRootNote, selectedScale }: {
     selectedTuning: Tuning
+    selectedFrets: number
     selectedRootNote: Note
     selectedScale?: Scale
   } = $props()
 
-  const strings = $derived(generateStrings(selectedTuning, 25, selectedRootNote, selectedScale))
+  const strings = $derived(generateStrings(selectedTuning, selectedFrets + 1, selectedRootNote, selectedScale))
 
-  let frets = Array.from({ length: 25 }, (_, i) => i);
+  let frets = $derived(Array.from({ length: selectedFrets + 1 }, (_, i) => i))
 </script>
 
 <style>

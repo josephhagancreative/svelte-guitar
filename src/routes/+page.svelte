@@ -2,20 +2,23 @@
   <h1>Svelte Guitar</h1>
   <div class="select-container">
     <TuningSelect bind:value={selectedTuning} />
+    <FretSelect bind:value={selectedFrets} />
     <RootNoteSelect bind:value={selectedRootNote} />
     <ScaleSelect bind:value={selectedScale} />
   </div>
-  <Fretboard {selectedTuning} {selectedRootNote} {selectedScale} />
+  <Fretboard {selectedTuning} {selectedFrets} {selectedRootNote} {selectedScale} />
 </div>
 
 <script lang="ts">
 	import Fretboard from "$lib/components/fretboard.svelte";
+	import FretSelect from "$lib/components/fretSelect.svelte";
 	import RootNoteSelect from "$lib/components/rootNoteSelect.svelte";
 	import ScaleSelect from "$lib/components/scaleSelect.svelte";
 	import TuningSelect from "$lib/components/tuningSelect.svelte";
 	import type { Note, Scale, Tuning } from "$lib/types/guitar";
   
   let selectedTuning: Tuning = $state('E Standard')
+  let selectedFrets: number = $state(24)
   let selectedRootNote: Note = $state('C')
   let selectedScale: Scale | undefined = $state()
 </script>
