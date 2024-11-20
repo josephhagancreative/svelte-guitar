@@ -4,6 +4,15 @@ export type Note = 'A' | 'A#' | 'B' | 'C' | 'C#' | 'D' | 'D#' | 'E' | 'F' | 'F#'
 
 export type Scale = 'Major' | 'Minor';
 
+export type Chord =
+	| 'Major'
+	| 'Minor'
+	| 'Major 7th'
+	| 'Minor 7th'
+	| 'Diminished'
+	| 'Dominant'
+	| 'Half-Diminished';
+
 export type NoteObj = {
 	note: Note;
 	isVisible: boolean;

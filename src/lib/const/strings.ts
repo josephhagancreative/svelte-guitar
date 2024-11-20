@@ -1,4 +1,4 @@
-import type { Note, Scale, Tuning } from '$lib/types/guitar';
+import type { Chord, Note, Scale, Tuning } from '$lib/types/guitar';
 
 export const TUNINGS = ['E Standard', 'E Half Step Down', 'Drop D'];
 
@@ -61,6 +61,16 @@ export const SCALE_NOTES: Record<Note, Record<Scale, Note[]>> = {
 		Major: ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G'],
 		Minor: ['G#', 'A#', 'B', 'C#', 'D#', 'E', 'F#']
 	}
+};
+
+export const INTERVALS: Record<Chord, number[]> = {
+	Major: [0, 4, 7], // Root, Major 3rd, Perfect 5th
+	Minor: [0, 3, 7], // Root, Minor 3rd, Perfect 5th
+	'Major 7th': [0, 4, 7, 11], // Root, Major 3rd, Perfect 5th, Major 7th
+	'Minor 7th': [0, 3, 7, 10], // Root, Minor 3rd, Perfect 5th, Minor 7th
+	Diminished: [0, 3, 6], // Root, Minor 3rd, Diminished 5th
+	Dominant: [0, 4, 7, 10], // Root, Major 3rd, Perfect 5th, Minor 7th
+	'Half-Diminished': [0, 3, 6, 10] // Root, Minor 3rd, Diminished 5th, Minor 7th
 };
 
 export const DOTTED_FRETS = [3, 5, 7, 9, 12, 15, 17, 19, 21, 24];

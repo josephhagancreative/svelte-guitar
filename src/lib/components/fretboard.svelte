@@ -10,19 +10,15 @@
 </div>
 
 <script lang="ts">
-	import type { Note, Scale, Tuning } from "$lib/types/guitar";
+	import type { GuitarString, Note, Scale, Tuning } from "$lib/types/guitar";
 	import { generateStrings } from "$lib/utils/strings/generateStrings";
 	import { isDottedFret } from "$lib/utils/strings/isDottedFret";
 	import String from "./string.svelte";
 
-  let { selectedTuning, selectedFrets = 24, selectedRootNote, selectedScale }: {
-    selectedTuning: Tuning
+  let { strings, selectedFrets }: {
+    strings: GuitarString[]
     selectedFrets: number
-    selectedRootNote: Note
-    selectedScale?: Scale
   } = $props()
-
-  const strings = $derived(generateStrings(selectedTuning, selectedFrets + 1, selectedRootNote, selectedScale))
 
   let frets = $derived(Array.from({ length: selectedFrets + 1 }, (_, i) => i))
 </script>
